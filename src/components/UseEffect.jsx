@@ -12,7 +12,7 @@ export const UseEffect = () => {
 
   return (
     <>
-      <h2>Alena</h2>
+      <h2>Alena!</h2>
       {products.map(({ id, name, price }) => {
         return (
           <div key={id}>
