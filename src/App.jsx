@@ -1,5 +1,5 @@
 import "./App.css";
-import { UseEffect } from "./components/UseEffect";
+import { UseEffect } from "./components/useEffect";
 
 function App() {
   return (
