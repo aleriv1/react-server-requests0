@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 
 export const UseEffectNew = () => {
   const [products, setProducts] = useState([]);
+  const onClickHandler = () => {
+    console.log("Alena!");
+  };
+
   useEffect(() => {
-    fetch("https://mocki.io/v1/4fda5797-2f13-4125-a859-e29fa8fc0c5c")
-      .then((loadedData) => loadedData.json())
-      .then((loadedProducts) => {
-        setProducts(loadedProducts);
-      });
+    document.addEventListener("click", onClickHandler);
+    return () => document.removeEventListener("click", onClickHandler);
   }, []);
 
   return (
