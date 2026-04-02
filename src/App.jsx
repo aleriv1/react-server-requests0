@@ -3,16 +3,18 @@ import { UseEffect } from "./components/UseEffect";
 import { UseEffectNew } from "./components/UseEffectNew";
 import { BackendMock } from "./components/BackendMock/BackendMock";
 import { JSONserver } from "./components/JSONserver/JSONserver";
+import { PutPatchDelete } from "./components/PutPatchDelete/PutPatchDelete";
 
 function App() {
   return (
     <>
-      <JSONserver />
-      <hr />
+      <PutPatchDelete />
+      {/* <JSONserver /> */}
+      {/* <hr /> */}
       {/* <BackendMock /> */}
-      <hr />
+      {/* <hr /> */}
       {/* <UseEffectNew /> */}
-      <hr />
+      {/* <hr /> */}
       {/* <UseEffect /> */}
       {/* <h1>Alena server request</h1> */}
     </>

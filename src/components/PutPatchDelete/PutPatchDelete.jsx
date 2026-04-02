@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import styles from "./JSONserver.module.scss";
+import styles from "./PutPatchDelete.module.scss";
 
-export const JSONserver = () => {
+export const PutPatchDelete = () => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [refreshProductsFlag, setRefreshProductsFlag] = useState(false);
