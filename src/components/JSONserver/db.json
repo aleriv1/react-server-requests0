@@ -1,0 +1,19 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "tv",
+      "price": 1000
+    },
+    {
+      "id": "2",
+      "name": "sm",
+      "price": 1500
+    },
+    {
+      "id": "3",
+      "name": "fan",
+      "price": 500
+    }
+  ]
+}

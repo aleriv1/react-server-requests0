@@ -1,24 +1,6 @@
 import { useState, useEffect } from "react";
 import styles from "./JSONserver.module.scss";
 
-const PRODUCTS_MOCK = [
-  {
-    id: "1",
-    name: "tv",
-    price: 1000,
-  },
-  {
-    id: "2",
-    name: "sm",
-    price: 1500,
-  },
-  {
-    id: "3",
-    name: "fan",
-    price: 500,
-  },
-];
-
 export const JSONserver = () => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -26,9 +8,7 @@ export const JSONserver = () => {
   useEffect(() => {
     setIsLoading(true);
 
-    new Promise((resolve) => {
-      setTimeout(() => resolve({ json: () => PRODUCTS_MOCK }), 3000);
-    })
+    fetch("http://localhost:3000/products")
       .then((loadedData) => {
         return loadedData.json();
       })
@@ -40,7 +20,6 @@ export const JSONserver = () => {
 
   return (
     <>
-      {/* <div className={styles.loader}></div> */}
       <h2>JSON Server</h2>
       {isLoading ? (
         <div className={styles.loader}></div>

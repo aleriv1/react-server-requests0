@@ -9,11 +9,11 @@ function App() {
     <>
       <JSONserver />
       <hr />
-      <BackendMock />
+      {/* <BackendMock /> */}
       <hr />
-      <UseEffectNew />
+      {/* <UseEffectNew /> */}
       <hr />
-      <UseEffect />
+      {/* <UseEffect /> */}
       {/* <h1>Alena server request</h1> */}
     </>
   );
