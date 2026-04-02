@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import styles from "./BackendMock.module.css";
 const PRODUCTS_MOCK = [
   {
     id: "1",
@@ -20,29 +20,38 @@ const PRODUCTS_MOCK = [
 
 export const BackendMock = () => {
   const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
+
     new Promise((resolve) => {
-      resolve({ json: () => PRODUCTS_MOCK });
+      setTimeout(() => resolve({ json: () => PRODUCTS_MOCK }), 3000);
     })
       .then((loadedData) => {
         return loadedData.json();
       })
       .then((loadedProducts) => {
         setProducts(loadedProducts);
-      });
+      })
+      .finally(() => setIsLoading(false));
   }, []);
 
   return (
     <>
+      {/* <div className={styles.loader}></div> */}
       <h2>BackendMock</h2>
-      {products.map(({ id, name, price }) => {
-        return (
-          <div key={id}>
-            {name} - {price}
-          </div>
-        );
-      })}
+      {isLoading ? (
+        <div className={styles.loader}></div>
+      ) : (
+        products.map(({ id, name, price }) => {
+          return (
+            <div key={id}>
+              {name} - {price}
+            </div>
+          );
+        })
+      )}
     </>
   );
 };
