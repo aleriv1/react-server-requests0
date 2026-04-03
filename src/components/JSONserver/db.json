@@ -1,9 +1,9 @@
 {
   "products": [
     {
-      "id": "1",
-      "name": "tv",
-      "price": 1000
+      "name": "Smart",
+      "price": 100,
+      "id": "1"
     },
     {
       "id": "2",

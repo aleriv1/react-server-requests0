@@ -6,6 +6,7 @@ export const PutPatchDelete = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [refreshProductsFlag, setRefreshProductsFlag] = useState(false);
   const [isCreating, setIsCreating] = useState(false);
+  const [isUpdating, setIsUpdating] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
@@ -38,6 +39,24 @@ export const PutPatchDelete = () => {
       .finally(() => setIsCreating(false));
   };
 
+  const requestUpdateSmartphone = () => {
+    setIsUpdating(true);
+    fetch("http://localhost:3000/products/1", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json;charset=utf-8" },
+      body: JSON.stringify({
+        name: "Smart",
+        price: 100,
+      }),
+    })
+      .then((rawResponse) => rawResponse.json())
+      .then((response) => {
+        console.log("smartphone is cheaper", response);
+        setRefreshProductsFlag(!refreshProductsFlag);
+      })
+      .finally(() => setIsUpdating(false));
+  };
+
   return (
     <>
       <h2>JSON Server</h2>
@@ -54,6 +73,9 @@ export const PutPatchDelete = () => {
       )}
       <button disabled={isCreating} onClick={requestAddVacuumCleaner}>
         add vacuum cleaner
+      </button>
+      <button disabled={isUpdating} onClick={requestUpdateSmartphone}>
+        update smartphone
       </button>
     </>
   );
