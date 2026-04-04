@@ -8,6 +8,7 @@ import { PutPatchDelete } from "./components/PutPatchDelete/PutPatchDelete";
 function App() {
   return (
     <>
+      <h1>Alena server request</h1>
       <PutPatchDelete />
       {/* <JSONserver /> */}
       {/* <hr /> */}
@@ -16,7 +17,6 @@ function App() {
       {/* <UseEffectNew /> */}
       {/* <hr /> */}
       {/* <UseEffect /> */}
-      {/* <h1>Alena server request</h1> */}
     </>
   );
 }

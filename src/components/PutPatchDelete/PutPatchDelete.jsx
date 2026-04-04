@@ -7,6 +7,7 @@ export const PutPatchDelete = () => {
   const [refreshProductsFlag, setRefreshProductsFlag] = useState(false);
   const [isCreating, setIsCreating] = useState(false);
   const [isUpdating, setIsUpdating] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
@@ -57,6 +58,19 @@ export const PutPatchDelete = () => {
       .finally(() => setIsUpdating(false));
   };
 
+  const requestDeleteFan = () => {
+    setIsDeleting(true);
+    fetch("http://localhost:3000/products/3", {
+      method: "DELETE",
+    })
+      .then((rawResponse) => rawResponse.json())
+      .then((response) => {
+        console.log("fan is deleted", response);
+        setRefreshProductsFlag(!refreshProductsFlag);
+      })
+      .finally(() => setIsDeleting(false));
+  };
+
   return (
     <>
       <h2>JSON Server</h2>
@@ -76,6 +90,9 @@ export const PutPatchDelete = () => {
       </button>
       <button disabled={isUpdating} onClick={requestUpdateSmartphone}>
         update smartphone
+      </button>
+      <button disabled={isDeleting} onClick={requestDeleteFan}>
+        delete fan
       </button>
     </>
   );
