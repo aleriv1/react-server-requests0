@@ -6,49 +6,29 @@
       "id": "1"
     },
     {
-      "id": "2",
-      "name": "sm",
-      "price": 1500
+      "name": "Смартфон",
+      "price": 17900,
+      "id": "2"
     },
     {
       "name": "New vacuum cleaner",
       "price": 4500,
-      "id": "NFlhERJ"
+      "id": "tRQyUKn"
     },
     {
       "name": "New vacuum cleaner",
       "price": 4500,
-      "id": "guVtCOW"
+      "id": "BT7Rbhw"
     },
     {
-      "name": "New vacuum cleaner",
-      "price": 4500,
-      "id": "A4ZfzGs"
+      "name": "Пылесос",
+      "price": 4690,
+      "id": "EfPuw0J"
     },
     {
-      "name": "New vacuum cleaner",
-      "price": 4500,
-      "id": "3CEMrV7"
-    },
-    {
-      "name": "New vacuum cleaner",
-      "price": 4500,
-      "id": "m0GyLao"
-    },
-    {
-      "name": "New vacuum cleaner",
-      "price": 4500,
-      "id": "rMrB5dp"
-    },
-    {
-      "name": "New vacuum cleaner",
-      "price": 4500,
-      "id": "UTKZv1X"
-    },
-    {
-      "name": "New vacuum cleaner",
-      "price": 4500,
-      "id": "FUG8rUg"
+      "name": "Пылесос",
+      "price": 4690,
+      "id": "JIBCSAK"
     }
   ]
 }
