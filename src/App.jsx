@@ -10,13 +10,15 @@ import { ProductsAll } from "./components/AnotherWay/ProductsAll";
 import { ProductsApp } from "./components/AnotherWay/ProductsApp";
 import { JSONPlaceholder } from "./components/JSONPlaceholder/JSONPlaceholder";
 import { JSONPlacholderAddPost } from "./components/JSONPlaceholder/JSONPlacholderAddPost";
+import { Firebase } from "./components/Firebase/Firebase";
 
 function App() {
   return (
     <>
       <h1>Alena server request</h1>
+      <Firebase />
       {/* <ProductsApp /> */}
-      <JSONPlacholderAddPost />
+      {/* <JSONPlacholderAddPost /> */}
       {/* <JSONPlaceholder /> */}
       {/* <ProductsAll /> */}
       {/* <UserHooksApp /> */}
