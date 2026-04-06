@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ref, push } from "firebase/database"; // push for add to the table
 import { db } from "../../firebase";
 
-export const useFrbRequestAddVacuumCleaner = (setRefreshProductsFlag) => {
+export const useFrbRequestAddVacuumCleaner = () => {
   const [isCreating, setIsCreating] = useState(false);
 
   const requestAddVacuumCleaner = () => {

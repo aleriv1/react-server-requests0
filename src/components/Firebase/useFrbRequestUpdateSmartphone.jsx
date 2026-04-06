@@ -1,25 +1,19 @@
 import { useState } from "react";
+import { ref, set } from "firebase/database";
+import { db } from "../../firebase";
 
-export const useFrbRequestUpdateSmartphone = (
-  refreshProductsFlag,
-  setRefreshProductsFlag,
-) => {
-  const [isUpdating, setIsUpdating] = useState(false);
+export const useFrbRequestUpdateSmartphone = () => {
+  const [isUpdating, setIsUpdating] = useState(true);
 
   const requestUpdateSmartphone = () => {
-    setIsUpdating(true);
-    fetch("http://localhost:3000/products/1", {
-      method: "PUT",
-      headers: { "Content-Type": "application/json;charset=utf-8" },
-      body: JSON.stringify({
-        name: "Smart",
-        price: 100,
-      }),
+    const smartphoneDbRef = ref(db, "products/002");
+
+    set(smartphoneDbRef, {
+      name: "smartPhone",
+      price: 100_000,
     })
-      .then((rawResponse) => rawResponse.json())
       .then((response) => {
         console.log("smartphone is cheaper", response);
-        setRefreshProductsFlag(!refreshProductsFlag);
       })
       .finally(() => setIsUpdating(false));
   };
