@@ -50,7 +50,7 @@ export const FrbUserHooksApp = () => {
         update smartphone
       </button>
       <button disabled={isDeleting} onClick={requestDeleteFan}>
-        delete fan
+        delete products
       </button>
     </>
   );

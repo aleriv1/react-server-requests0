@@ -1,17 +1,17 @@
 import { useState } from "react";
+import { ref, remove } from "firebase/database";
+import { db } from "../../firebase";
 
 export const useFrbRequestDeleteFan = (
   refreshProductsFlag,
   setRefreshProductsFlag,
 ) => {
-  const [isDeleting, setIsDeleting] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(true);
 
   const requestDeleteFan = () => {
-    setIsDeleting(true);
-    fetch("http://localhost:3000/products/3", {
-      method: "DELETE",
-    })
-      .then((rawResponse) => rawResponse.json())
+    const productRemove = ref(db, "products/003");
+
+    remove(productRemove)
       .then((response) => {
         console.log("fan is deleted", response);
         setRefreshProductsFlag(!refreshProductsFlag);
