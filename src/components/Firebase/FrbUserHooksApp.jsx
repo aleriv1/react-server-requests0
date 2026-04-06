@@ -11,7 +11,7 @@ import styles from "./FrbUserHooksApp.module.scss";
 export const FrbUserHooksApp = () => {
   const [refreshProductsFlag, setRefreshProductsFlag] = useState(false);
 
-  const { products, isLoading } = useFrbRequestGetProducts(refreshProductsFlag);
+  const { products, isLoading } = useFrbRequestGetProducts();
 
   const { isCreating, requestAddVacuumCleaner } = useFrbRequestAddVacuumCleaner(
     refreshProductsFlag,
@@ -34,7 +34,8 @@ export const FrbUserHooksApp = () => {
       {isLoading ? (
         <div className={styles.loader}></div>
       ) : (
-        products.map(({ id, name, price }) => {
+        // products.map(({ id, name, price }) => {
+        products.map(([id, { name, price }]) => {
           return (
             <div key={id}>
               {name} - {price}

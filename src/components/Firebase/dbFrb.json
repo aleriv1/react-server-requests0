@@ -1,0 +1,16 @@
+{
+  "products": {
+    "001": {
+      "name": "Smart",
+      "price": 100,
+    },
+    "002": {
+      "name": "Смартфон",
+      "price": 17900,
+    },
+    "003": {
+      "name": "New vacuum cleaner",
+      "price": 4500,
+    }
+  }
+}

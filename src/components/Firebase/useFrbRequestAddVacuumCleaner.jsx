@@ -1,25 +1,23 @@
 import { useState } from "react";
+import { ref, push } from "firebase/database"; // push for add to the table
+import { db } from "../../firebase";
 
-export const useFrbRequestAddVacuumCleaner = (
-  refreshProductsFlag,
-  setRefreshProductsFlag,
-) => {
+export const useFrbRequestAddVacuumCleaner = (setRefreshProductsFlag) => {
   const [isCreating, setIsCreating] = useState(false);
 
   const requestAddVacuumCleaner = () => {
     setIsCreating(true);
-    fetch("http://localhost:3000/products/", {
-      method: "POST",
-      headers: { "Content-Type": "application/json;charset=utf-8" },
-      body: JSON.stringify({
-        name: "New vacuum cleaner",
-        price: 4500,
-      }),
+
+    const productsDbRef = ref(db, "products");
+
+    push(productsDbRef, {
+      // it returns promise; but we get the answer right away
+      name: "The new vacuum cleaner",
+      price: 10000,
     })
-      .then((rawResponse) => rawResponse.json())
       .then((response) => {
         console.log("vacuum cleaner is add, the server answer", response);
-        setRefreshProductsFlag(!refreshProductsFlag);
+        // setRefreshProductsFlag(!refreshProductsFlag);
       })
       .finally(() => setIsCreating(false));
   };

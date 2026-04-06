@@ -1,21 +1,20 @@
 import { useEffect, useState } from "react";
+import { ref, onValue } from "firebase/database";
+import { db } from "../../firebase";
 
-export const useFrbRequestGetProducts = (refreshProductsFlag) => {
-  const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+export const useFrbRequestGetProducts = () => {
+  const [products, setProducts] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setIsLoading(true);
+    const productsDbRef = ref(db, "products");
 
-    fetch("http://localhost:3000/products")
-      .then((loadedData) => {
-        return loadedData.json();
-      })
-      .then((loadedProducts) => {
-        setProducts(loadedProducts);
-      })
-      .finally(() => setIsLoading(false));
-  }, [refreshProductsFlag]);
+    return onValue(productsDbRef, (snapshot) => {
+      const loadedProducts = snapshot.val() || {};
+      setProducts(Object.entries(loadedProducts));
+      setIsLoading(false);
+    });
+  }, []); // no more dependencies needed, because there is onValue
 
   return { products, isLoading };
 };
